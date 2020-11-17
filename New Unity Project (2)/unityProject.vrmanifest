@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.htcvivetest.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\MARBG_VRIA01\\Desktop\\ocp-msAR\\New Unity Project (2)\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "New Unity Project (2) [Testing]"
+        }
+      }
+    }
+  ]
+}
