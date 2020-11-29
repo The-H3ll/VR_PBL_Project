@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class play_animation : MonoBehaviour
 {
-    
-    public float speed = 1;
     private new AudioSource audio;
 
-    bool started = true;
     bool current = false;
     //Animator animator;
 
@@ -23,7 +20,6 @@ public class play_animation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //animator.speed = speed;
     }
 
     public void HeadSetOn()
@@ -31,27 +27,13 @@ public class play_animation : MonoBehaviour
         audio.volume = .1f;
     }
 
-    public void StartOff()
-    {
-        if (started && current)
-        {
-            //animator.Play("machine_turning");
-            audio.Play();
-        }
-        else
-        {
-            //animator.Play("New State");
-            audio.Stop();
-        }
-        started = !started;
-    }
 
     public void CurrentOff()
     {
         if (current)
         {
             current = false;
-            StartOff();
+            audio.Stop();
         }
     }
 
@@ -60,8 +42,13 @@ public class play_animation : MonoBehaviour
         if (!current)
         {
             current = true;
-            StartOff();
+            audio.Play();
         }
+    }
+
+    public void Stop()
+    {
+        audio.Stop();
     }
 
 }

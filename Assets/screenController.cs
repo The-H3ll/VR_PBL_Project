@@ -6,7 +6,9 @@ public class screenController : MonoBehaviour
 {
     public Texture screenOff;
     public Texture screenOn;
+    public List<Texture> screens;
     Renderer m_Renderer;
+    private bool screenTurnedOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +23,22 @@ public class screenController : MonoBehaviour
         
     }
 
+    public void SetScreen(int index)
+    {
+        m_Renderer.material.SetTexture("_MainTex", screens[index]);
+        screenTurnedOn = true;
+    }
+
     public void SetScreenOn()
     {
-        m_Renderer.material.SetTexture("_MainTex", screenOn);
+        if (!screenTurnedOn)
+            m_Renderer.material.SetTexture("_MainTex", screenOn);
+        screenTurnedOn = true;
     }
 
     public void SetScreenOff()
     {
         m_Renderer.material.SetTexture("_MainTex", screenOff);
+        screenTurnedOn = false;
     }
 }

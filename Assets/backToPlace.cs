@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class backToPlace : MonoBehaviour
 {
-    private new Transform transform;
+    private Transform transform;
+    private Rigidbody rigidbody; 
     private Vector3 position;
     private Quaternion rotation;
 
@@ -12,6 +13,7 @@ public class backToPlace : MonoBehaviour
     void Start()
     {
         transform = GetComponent<Transform>();
+        rigidbody = GetComponent<Rigidbody>();
         position = transform.position;
         rotation = transform.rotation;
     }
@@ -28,6 +30,7 @@ public class backToPlace : MonoBehaviour
         {
             transform.position = position;
             transform.rotation = rotation;
+            rigidbody.velocity = Vector3.zero;
         }
     }
 }
